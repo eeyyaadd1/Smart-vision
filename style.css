@@ -25,7 +25,7 @@ ul {
     list-style: none;
 }
 
-/* Container for responsive widths like autocryp */
+/* Container for responsive widths */
 .container {
     padding-left: 15px;
     padding-right: 15px;
@@ -51,12 +51,13 @@ ul {
     }
 }
 
-/* Navbar */
+/* Updated Navbar */
 .navbar {
     background-color: var(--prim-color) !important;
     position: fixed;
     width: 100%;
     z-index: 1000;
+    padding: 15px 0;
 }
 
 .navbar .navbar-brand {
@@ -64,10 +65,23 @@ ul {
     font-size: 26px;
 }
 
+.navbar .navbar-collapse {
+    justify-content: space-between;
+}
+
+.navbar .navbar-nav:first-child {
+    margin-left: auto;
+}
+
+.navbar .navbar-nav:last-child {
+    margin-left: 3rem;
+}
+
 .navbar .nav-link {
     color: var(--sec-color) !important;
-    font-size: 20px;
+    font-size: 18px;
     transition: 0.2s;
+    margin: 0 10px;
 }
 
 .navbar .nav-link:hover {
@@ -76,8 +90,9 @@ ul {
 
 .navbar .btn {
     color: var(--sec-color);
-    font-size: 20px;
+    font-size: 18px;
     transition: 0.2s;
+    margin: 0 5px;
 }
 
 .navbar .btn:hover {
@@ -86,11 +101,12 @@ ul {
 
 .navbar .button {
     background-color: var(--a-color);
-    border-radius: 6px 0 7px 0;
-    padding: 5px 15px;
+    border-radius: 6px;
+    padding: 8px 20px;
     font-size: 16px;
     font-weight: bold;
     transition: 0.2s;
+    margin-left: 10px;
 }
 
 .navbar .button:hover {
@@ -100,7 +116,7 @@ ul {
 /* Home */
 .home {
     background-color: var(--prim-color);
-    padding: 100px 0;
+    padding: 120px 0 100px;
 }
 
 .home .row {
@@ -127,10 +143,11 @@ ul {
     max-width: 100%;
 }
 
-/* About */
+/* Updated About Section */
 .about {
     padding: 100px 0;
     text-align: center;
+    background-color: #f8f9fa;
 }
 
 .about a {
@@ -138,9 +155,10 @@ ul {
     color: var(--sec-color);
     background-color: var(--a-color);
     padding: 15px 30px;
-    border-radius: 7px 0 12px 0;
+    border-radius: 7px;
     font-size: 20px;
     transition: 0.3s;
+    margin-bottom: 80px;
 }
 
 .about a:hover {
@@ -149,31 +167,47 @@ ul {
 
 .about .main {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 40px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.about .card {
     background-color: var(--sec-color);
-    box-shadow: 0 0 30px 0 hsla(0, 0%, 82.4%, 0.5);
-    border-radius: 10px;
-    padding: 60px;
+    box-shadow: 0 5px 30px rgba(0,0,0,0.1);
+    border-radius: 15px;
+    padding: 40px 30px;
+    text-align: center;
+    transition: 0.3s;
+    border: 1px solid #e9ecef;
+}
+
+.about .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
 }
 
 .about .card i {
     color: var(--prim-color);
-    font-size: 20px;
-    margin-bottom: 10px;
+    font-size: 32px;
+    margin-bottom: 20px;
+    display: block;
 }
 
 .about .card h2 {
     color: var(--prim-color);
     font-family: 'Ubuntu', sans-serif;
-    font-size: 18px;
-    margin: 10px 0;
+    font-size: 22px;
+    margin: 20px 0;
+    font-weight: 600;
 }
 
 .about .card p {
-    color: var(--hover);
+    color: #666;
     font-size: 16px;
-    line-height: 1.8;
+    line-height: 1.6;
+    text-align: left;
 }
 
 /* Services */
@@ -260,7 +294,7 @@ ul {
     color: var(--sec-color);
     background-color: var(--a-color);
     padding: 15px 40px;
-    border-radius: 5px 0 5px 0;
+    border-radius: 5px;
     font-size: 14px;
     font-weight: 500;
     text-transform: uppercase;
@@ -389,14 +423,22 @@ footer h2 span {
     font-size: 29px;
 }
 
-/* Responsive Design like autocryp */
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .about .main {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 40px;
+    }
+}
+
 @media (max-width: 1000px) {
-    .navbar .navbar-brand {
-        display: block;
+    .navbar .navbar-nav:last-child {
+        margin-left: 0;
+        margin-top: 10px;
     }
 
     .navbar .btn, .navbar .button {
-        display: none;
+        font-size: 16px;
     }
 
     .home .row {
@@ -409,8 +451,9 @@ footer h2 span {
     }
 
     .about .main {
-        padding: 50px 20px;
-        gap: 20px;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px;
+        padding: 0 20px;
     }
 
     .services .main-card {
@@ -419,6 +462,10 @@ footer h2 span {
 }
 
 @media (max-width: 767px) {
+    .home {
+        padding: 100px 0 80px;
+    }
+
     .home h1 {
         font-size: 33px;
     }
@@ -432,11 +479,23 @@ footer h2 span {
     }
 
     .about a {
-        width: 40%;
+        width: 60%;
+        margin-bottom: 50px;
+    }
+
+    .about .main {
+        grid-template-columns: 1fr;
+        gap: 30px;
     }
 
     .services .mainn {
         flex-direction: column;
+        align-items: center;
+    }
+
+    .services .mainn h4,
+    .services .mainn h5 {
+        width: 80%;
     }
 
     .services .main-card {
@@ -449,13 +508,17 @@ footer h2 span {
 }
 
 @media (max-width: 500px) {
+    .navbar .navbar-brand {
+        font-size: 22px;
+    }
+
     .services .mainn h4,
     .services .mainn h5 {
         width: 100%;
     }
 
-    .services .main-card {
-        margin-left: 10px;
+    .about .card {
+        padding: 30px 20px;
     }
 }
 
@@ -469,10 +532,6 @@ footer h2 span {
     }
 
     .about a {
-        width: 20%;
-    }
-
-    .services .main-card {
-        margin-left: 2.7em;
+        width: 30%;
     }
 }
